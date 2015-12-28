@@ -1,9 +1,27 @@
-websocketPort = 3334
-appPort = 3333
+appPort = process.env.PORT || 3333
+
+# express server
+express = require 'express'
+app = express()
+
+app.set 'views', './views'
+app.set 'view engine', 'jade'
+app.use express.static('public')
+
+app.get '/', (req, res) ->
+    renderOptions =
+        title: 'Csgo bans'
+        url: 'ws://localhost:3334'
+    res.render 'index', renderOptions
+
+server = require('http').createServer(app)
+server.listen appPort
+
+# ==========================================
 
 # websocket server
 wsServer = require('ws').Server
-websocketServer = new wsServer(port: websocketPort)
+websocketServer = new wsServer(server: server)
 bannedMaps = []
 websocketServer.on 'connection', (ws) ->
     ws.on 'message', (msg) ->
@@ -23,22 +41,3 @@ websocketServer.on 'connection', (ws) ->
         websocketServer.clients.forEach (client) ->
             client.send closeMessage
 
-
-# ==========================================
-
-
-# express server
-express = require 'express'
-app = express()
-
-app.set 'views', './views'
-app.set 'view engine', 'jade'
-app.use express.static('public')
-
-app.get '/', (req, res) ->
-    renderOptions =
-        title: 'Csgo bans'
-        url: 'ws://localhost:3334'
-    res.render 'index', renderOptions
-
-app.listen appPort
