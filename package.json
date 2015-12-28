@@ -1,0 +1,22 @@
+{
+  "name": "csgo-bans-websockets",
+  "version": "0.0.1",
+  "description": "csgo map banning",
+  "main": "server.coffee",
+  "scripts": {
+    "test": "grunt test",
+    "start": "coffee server.coffee"
+  },
+  "keywords": [
+    "csgo",
+    "ban"
+  ],
+  "author": "João Teló",
+  "license": "MIT",
+  "dependencies": {
+    "coffee-script": "^1.10.0",
+    "express": "^4.13.3",
+    "jade": "^1.11.0",
+    "ws": "^0.8.1"
+  }
+}
