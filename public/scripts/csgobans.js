@@ -1,5 +1,5 @@
 var defaultBorder = '1.5px solid rgb(221, 221, 221)';
-var bannedBorder = '2px solid rgb(255, 0, 0)';
+var bannedBorder = '0px 0px 0px 2px red inset';
 
 var toggleFade = function(map){
     var mapObj = $('#'+map);
@@ -18,13 +18,13 @@ var isFaded = function(map){
 var setMyBan = function(map){
     if(map==='')
         return '';
-    $('#'+map).css('border', bannedBorder);
-    //$('#'+map).css('background', 'red');
+    $('#'+map).parent().css('box-shadow', bannedBorder);
+    //$('#'+map).parent().css('background', 'red');
 }
 
 var resetMyBan = function(map){
-    $('#'+map).css('border', defaultBorder);
-    //$('#'+map).css('background', '');
+    $('#'+map).parent().css('box-shadow', '');
+    //$('#'+map).parent().css('background', '');
 }
 
 var resetAllFades = function(){
