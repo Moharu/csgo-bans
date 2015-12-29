@@ -18,13 +18,13 @@ var isFaded = function(map){
 var setMyBan = function(map){
     if(map==='')
         return '';
-    $('#'+map).parent().css('border', bannedBorder);
-    //$('#'+map).parent().css('background', 'red');
+    $('#'+map).css('border', bannedBorder);
+    //$('#'+map).css('background', 'red');
 }
 
 var resetMyBan = function(map){
-    $('#'+map).parent().css('border', defaultBorder);
-    //$('#'+map).parent().css('background', '');
+    $('#'+map).css('border', defaultBorder);
+    //$('#'+map).css('background', '');
 }
 
 var resetAllFades = function(){
