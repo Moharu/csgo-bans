@@ -1,5 +1,5 @@
 var defaultBorder = '1.5px solid rgb(221, 221, 221)';
-var bannedBorder = '2.5px solid rgb(255, 0, 0)';
+var bannedBorder = '2px solid rgb(255, 0, 0)';
 
 var toggleFade = function(map){
     var mapObj = $('#'+map);
